@@ -1,9 +1,9 @@
 // Fetching JSON data from Fake JSON API
 async function fetchUsers() {
   try {
-    let response = await fetch("https://jsonplaceholder.typicode.com/users");
+      let response = await fetch("https://jsonplaceholder.typicode.com/users");
+      // let response = await fetch("https://jsonplaceholder.typicode.com/users?_limit=5");
     let users = await response.json();
-    // console.log("Fetched Users:", users);
     users.splice(5);
 
     // Filtering Users (Find users whose names start with 'C')
