@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Script Access</title>
+</head>
+
+<body>
+    <h1>Start of the Page</h1>
+
+    <!-- This paragraph may or may not be accessible because the async script runs asynchronously -->
+    <p id="text">Hello, World!</p>
+
+    <!-- Asynchronous script -->
+    <script src="main.js" async></script>
+
+    <h2>End of the Page</h2>
+</body>
+
+</html>

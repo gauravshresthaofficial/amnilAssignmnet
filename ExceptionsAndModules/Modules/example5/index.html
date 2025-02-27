@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defer Script Access</title>
+</head>
+
+<body>
+    <h1>Start of the Page</h1>
+
+    <!-- Deferred script -->
+    <script src="main.js" defer></script>
+
+    <!-- The element will be accessible because defer ensures the script runs after HTML parsing -->
+    <p id="text">Hello, World!</p>
+
+
+    <h2>End of the Page</h2>
+</body>
+
+</html>
