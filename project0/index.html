@@ -10,11 +10,23 @@
 
 <body>
     <h1>Currency Converter</h1>
+    <p id="notification"></p>
     <div>
-        <h2 class="currency-title">USD</h2>
-        <input type="number" class="currency-input" id="convertFrom">
+        <h2 id="fromCountry"></h2>
+        <img src="" alt="" id="fromImg">
+        <select id="fromCurrency"></select>
+        <input type="number" class="currency-input" id="from-amt">
     </div>
-    <script src="script.js"></script>
+    <!-- <button id="swapBtn">Swap</button> -->
+    <img src="./images/swap-svgrepo-com.svg" alt="" id="swapBtn">
+    <div>
+        <h2 id="toCountry"></h2>
+        <img src="" alt="" id="toImg">
+        <select id="toCurrency"></select>
+        <input type="number" class="currency-input" id="to-amt">
+    </div>
+    <button id="convertBtn">Convert</button>
+    <script type="module" src="script.js"></script>
 </body>
 
 </html>
