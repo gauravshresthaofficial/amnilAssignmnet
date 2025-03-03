@@ -25,7 +25,6 @@ body {
   grid-template-areas:
     "title title"
     "wrapper1 wrapper2"
-    /* "wrapper2 wrapper2" */
     "swap swap"
     "button button";
 }
@@ -100,7 +99,6 @@ h1 {
 
 #swapBtn:hover {
   transform: scale(110%);
-
 }
 
 #fromImg,
@@ -122,20 +120,13 @@ select {
 }
 
 .currency-input {
-  width: 100%;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #f9f9f9;
-}
-
-input {
   width: 100%;
   font-size: 1rem;
-  padding: 10px;
-  border: 0;
   font-size: 2rem;
   text-align: right;
-  background-color: #f9f9f9;
 }
 
 input:active,
