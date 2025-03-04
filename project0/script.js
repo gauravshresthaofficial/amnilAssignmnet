@@ -1,5 +1,6 @@
 import { API_KEY } from "./key.js";
 const exchangerateApi = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest`;
+// const exchangerateApi = `https://api.exchangerate-api.com/v4/latest/`;
 const countriesApi = "https://restcountries.com/v3.1/all";
 
 // DOM Elements
@@ -32,8 +33,8 @@ const fetchCountriesData = async () => {
     // Sort grouped countries by currency code
     groupedCountries = sortGroupedCountries(groupedCountries);
 
-    console.log("Number of currencies:", Object.keys(groupedCountries).length);
-    console.log("Grouped countries:", groupedCountries);
+    // console.log("Number of currencies:", Object.keys(groupedCountries).length);
+    // console.log("Grouped countries:", groupedCountries);
   } catch (error) {
     console.error("Error fetching countries data:", error);
     showNotification("Failed to fetch countries data. Please try again.");
@@ -97,8 +98,8 @@ const populateDropdown = (selectElement, data) => {
 };
 
 const handleFlagChange = (ele, selector) => {
-  let imgEle = document.getElementById(ele);
-  let src = groupedCountries[selector.value].countries[0].flag;
+  const imgEle = document.getElementById(ele);
+  const src = groupedCountries[selector.value].countries[0].flag;
 
   imgEle.src = src; // change image
 };
@@ -131,7 +132,7 @@ const convertCurrency = async () => {
     return;
   }
 
-  convertBtn.disabled = true;
+  // convertBtn.disabled = true;
   convertBtn.textContent = "Converting...";
 
   try {
@@ -155,7 +156,7 @@ const convertCurrency = async () => {
     console.error("Error during conversion:", error);
     showNotification("Failed to convert currency. Please try again.");
   } finally {
-    convertBtn.disabled = false;
+    // convertBtn.disabled = false;
     convertBtn.textContent = "Convert";
     console.log("Conversion operation stopped.");
     fromAmt.focus();
@@ -193,17 +194,19 @@ const initApp = async () => {
   populateDropdown(toCurrency, groupedCountries);
   fromCurrency.value = DEFAULT_FROM_CURRENCY;
   toCurrency.value = DEFAULT_TO_CURRENCY;
+
   //Initially load the exchange rate
   // exchangerates = await fetch(`${exchangerateApi}/${DEFAULT_FROM_CURRENCY}`);
   // fromAmt.value = 1;
   // convertCurrency();
+
+  
   fromCurrency.dispatchEvent(new Event("change"));
   toCurrency.dispatchEvent(new Event("change"));
-  console.log("Currencies loaded:", Object.keys(groupedCountries));
+  // console.log("Currencies loaded:", Object.keys(groupedCountries));
   container.classList.remove("hidden");
   loading.classList.add("hidden");
   fromAmt.focus();
-  console.log(groupedCountries["AED"].countries[0].flag);
 };
 
 // Run App
