@@ -1,3 +1,13 @@
+/* General Styles */
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: rgb(16, 24, 39);
+  color: #ffffff;
+}
+
+/* Containers */
 .container {
   display: flex;
   flex-direction: column;
@@ -6,18 +16,39 @@
   height: 100vh;
 }
 
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #27323e;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 2rem;
 }
 
+/* Typography */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+#strength-text {
+  font-weight: bold;
+}
+
+label {
+  min-width: fit-content;
+}
+
+/* Buttons */
 button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 4rem;
   cursor: pointer;
 }
 
@@ -34,26 +65,77 @@ button:disabled {
   cursor: not-allowed;
 }
 
-button + button {
-  margin-left: 1rem;
+#copy {
+  padding: 0.75rem 2rem;
 }
 
-#result {
-  display: flex;
-  gap: 10px;
-}
-
+/* Input Fields */
 #input-div {
-  padding: 0.5rem;
+  display: flex;
+  padding: 0.2rem;
   border: 1px solid #ced4da;
-  border-radius: 5px;
+  border-radius: 4rem;
+  background-color: white;
+  flex-grow: 1;
 }
 
 input {
+  background-color: transparent;
   border: none;
+  font-size: 1.2rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   outline: none;
   font-size: large;
+  padding-left: 10px;
+  width: 100%;
 }
+
+/* Result Section */
+#result {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Settings and Options */
+#settings, #options, #strength-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 8px;
+  width: 100%;
+}
+
+#options div {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+#strength-indicator {
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+/* Strength Bar */
+#strength-bar {
+  width: 60%;
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#strength-bar-fill {
+  height: 100%;
+  width: 0;
+  background-color: red;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Notification */
 #notification {
   font-size: 0.9rem;
   position: fixed;
@@ -66,25 +148,57 @@ input {
   border-radius: 6px;
   min-width: 400px;
   margin: 0 auto;
-  opacity: 0; /* Start hidden */
-  visibility: hidden; /* Start hidden */
+  opacity: 0;
+  visibility: hidden;
   transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
 #notification.visible {
-  opacity: 1; /* Fully visible */
-  visibility: visible; /* Fully visible */
+  opacity: 1;
+  visibility: visible;
   animation: slideUp 0.3s ease-out forwards;
 }
 
 .notification.success {
-  background-color: #4caf50; /* Green for success */
+  background-color: #4caf50;
 }
 
 .notification.error {
-  background-color: #f44336; /* Red for errors */
+  background-color: #f44336;
 }
 
+/* Loading Screen */
+#loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-left-color: #4caf50;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+/* Footer */
+.footer {
+  position: fixed;
+  font-size: 0.8rem;
+  right: 20px;
+  bottom: 4px;
+  color: darkgray;
+  letter-spacing: 0.05cm;
+  font-family: Impact, sans-serif;
+}
+
+/* Animations */
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -93,5 +207,30 @@ input {
   to {
     opacity: 1;
     transform: translateY(0) translateX(-50%);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .content {
+    padding: 1.2rem 1rem;
+    width: 80%;
+  }
+
+  #result {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  #notification {
+    min-width: 300px;
+    top: 4rem;
+    bottom: auto;
   }
 }

@@ -1,85 +1,39 @@
-import { showNotification } from "./helper";
-import { createPassword } from "./password";
+import { copyToClipboard } from "./clipboard";
+import { generatePassword } from "./generatePassword";
+import { showNotification } from "./notification";
+import { updateLength } from "./utils";
 
-// setupEventListeners.js
-export const setupEventListeners = () => {
-  const passwordInput = document.querySelector("#password");
-  const generateButton = document.querySelector("#generate");
-  const copyButton = document.querySelector("#copy");
-  const lengthInput = document.querySelector("#length");
-  const uppercaseCheckbox = document.querySelector("#uppercase");
-  const lowercaseCheckbox = document.querySelector("#lowercase");
-  const numbersCheckbox = document.querySelector("#numbers");
-  const symbolsCheckbox = document.querySelector("#symbols");
-  const lengthDisplay = document.querySelector("#lengthDisplay");
-
-  if (
-    !passwordInput ||
-    !generateButton ||
-    !copyButton ||
-    !lengthInput ||
-    !uppercaseCheckbox ||
-    !lowercaseCheckbox ||
-    !numbersCheckbox ||
-    !symbolsCheckbox ||
-    !lengthDisplay
-  ) {
+export const setupEventListeners = (domElements) => {
+  // Check if all required DOM elements exist
+  if (Object.values(domElements).some((element) => !element)) {
     showNotification("One or more DOM elements are missing!", true);
     console.error("One or more DOM elements are missing!");
     return;
   }
 
-  //Display the current length value
-  lengthDisplay.textContent = lengthInput.value;
-
-  // Generate password function
-  const generatePassword = () => {
-    const len = lengthInput.value;
-    const hasUpper = uppercaseCheckbox.checked;
-    const hasLower = lowercaseCheckbox.checked;
-    const hasNumbers = numbersCheckbox.checked;
-    const hasSymbols = symbolsCheckbox.checked;
-
-    try {
-      passwordInput.value = createPassword(
-        len,
-        hasUpper,
-        hasLower,
-        hasNumbers,
-        hasSymbols
-      );
-    } catch (error) {
-      showNotification(error.message, true);
-    }
-  };
-
-  // Update password length display
-  lengthInput.addEventListener("input", () => {
-    const value = lengthInput.value;
-    lengthDisplay.textContent = value;
-    generatePassword();
-  });
-
   // Generate password on checkbox change
   [
-    uppercaseCheckbox,
-    lowercaseCheckbox,
-    numbersCheckbox,
-    symbolsCheckbox,
+    domElements.uppercaseCheckbox,
+    domElements.lowercaseCheckbox,
+    domElements.numbersCheckbox,
+    domElements.symbolsCheckbox,
   ].forEach((checkbox) => {
-    checkbox.addEventListener("change", generatePassword);
+    checkbox.addEventListener("change", () => generatePassword(domElements));
+  });
+
+  // Update password length display
+  domElements.lengthInput.addEventListener("input", () => {
+    updateLength(domElements.lengthDisplay, domElements.lengthInput.value);
+    generatePassword(domElements);
   });
 
   // Generate password on button click
-  generateButton.addEventListener("click", generatePassword);
+  domElements.generateButton.addEventListener("click", () =>
+    generatePassword(domElements)
+  );
 
   // Copy password to clipboard
-  copyButton.addEventListener("click", async () => {
-    passwordInput.select();
-    await navigator.clipboard.writeText(passwordInput.value);
-    showNotification("Password copied to clipboard");
+  domElements.copyButton.addEventListener("click", async () => {
+    await copyToClipboard(domElements.passwordInput.value);
   });
-
-  // Generate password on page load
-  generatePassword();
 };
