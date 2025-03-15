@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  background-color: #004286;
+}
+
+button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+button + button {
+  margin-left: 1rem;
+}
+
+#result {
+  display: flex;
+  gap: 10px;
+}
+
+#input-div {
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+input {
+  border: none;
+  outline: none;
+  font-size: large;
+}
+#notification {
+  font-size: 0.9rem;
+  position: fixed;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  text-align: center;
+  padding: 8px;
+  border-radius: 6px;
+  min-width: 400px;
+  margin: 0 auto;
+  opacity: 0; /* Start hidden */
+  visibility: hidden; /* Start hidden */
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+#notification.visible {
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Fully visible */
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+.notification.success {
+  background-color: #4caf50; /* Green for success */
+}
+
+.notification.error {
+  background-color: #f44336; /* Red for errors */
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+}
