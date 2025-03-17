@@ -7,7 +7,7 @@ export const renderUI = () => {
     </div>
   `;
 
-  // After 3 seconds, replace the loading spinner with the main UI
+  // After 1 seconds, replace the loading spinner with the main UI
   setTimeout(() => {
     document.querySelector("#app").innerHTML = `
       <div class="container">
