@@ -88,6 +88,28 @@ The application will be available at `http://localhost:5173`.
 
 ---
 
+## Password Strength Criteria
+
+| **Criteria**         | **Points** | **Description**                                           |
+| -------------------- | ---------- | --------------------------------------------------------- |
+| **Length**           | 1          | Password length of **8 or more characters**.              |
+|                      | +1         | Additional point for length of **12 or more characters**. |
+| **Uppercase Letter** | 1          | Contains at least **one uppercase letter** (A-Z).         |
+| **Lowercase Letter** | 1          | Contains at least **one lowercase letter** (a-z).         |
+| **Number**           | 1          | Contains at least **one number** (0-9).                   |
+| **Symbol**           | 1          | Contains at least **one symbol** (e.g., !, @, #, $).      |
+
+### Strength Levels:
+
+| **Points** | **Strength Level** | **Indicator Color** |
+| ---------- | ------------------ | ------------------- |
+| 0–1        | Weak               | Red                 |
+| 2–3        | Medium             | Yellow              |
+| 4–5        | Strong             | Orange              |
+| 6          | Very Strong        | Green               |
+
+---
+
 ## ScreenShot
 
 ![alt text](image.png)
