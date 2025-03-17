@@ -32,13 +32,11 @@ cd amnilAssignmnet/pwdGenerator
 If you only want to clone the `pwdGenerator` project, use **Sparse Checkout**:
 
 ```bash
-mkdir pwdGenerator
-cd pwdGenerator
-git init
-git remote add -f origin https://github.com/gauravshresthaofficial/amnilAssignmnet.git
-git config core.sparseCheckout true
-echo "pwdGenerator/*" >> .git/info/sparse-checkout
-git pull origin main
+git clone --no-checkout https://github.com/gauravshresthaofficial/amnilAssignment.git
+cd amnilAssignment
+git sparse-checkout init --cone
+git sparse checkout set pwdGenerator
+git checkout main
 ```
 
 ### Install Dependencies
@@ -87,6 +85,12 @@ The application will be available at `http://localhost:5173`.
 
 5. **Password Strength**:
    - The strength of the password is displayed visually (Weak, Medium, Strong, Very Strong).
+
+---
+
+## ScreenShot
+
+![alt text](image.png)
 
 ---
 

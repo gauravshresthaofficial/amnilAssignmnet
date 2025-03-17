@@ -24,7 +24,7 @@ export const renderUI = () => {
           <div id="settings">
             <label for="length">Password Length:</label>
             <input type="range" id="length" min="4" max="20" value="8">
-            <p id="lengthDisplay"></p>
+            <p id="lengthDisplay">8</p>
           </div>
           <div id="options">
             <div>
