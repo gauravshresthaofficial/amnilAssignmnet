@@ -17,7 +17,7 @@ export const renderUI = () => {
             <div id="input-div">
               <label for="password" hidden>Password</label>
               <input type="text" id="password" readonly>
-              <button id="generate">Generate</button>
+              <button id="generate">&#x21BB</button>
             </div>
             <button id="copy">Copy</button>
           </div>

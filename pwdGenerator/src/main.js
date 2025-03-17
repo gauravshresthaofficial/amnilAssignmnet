@@ -29,4 +29,4 @@ setTimeout(() => {
 
   // Generate password on page load
   generatePassword(domElements);
-}, 3000);
+}, 1000);

@@ -67,7 +67,7 @@ button:disabled {
 }
 
 #copy {
-  padding: 0.75rem 2rem;
+  padding: 0.7rem 2rem;
 }
 
 /* Input Fields */
@@ -90,6 +90,7 @@ input {
   padding-left: 10px;
   width: 100%;
 }
+
 
 /* Result Section */
 #result {
@@ -224,9 +225,8 @@ input {
     width: 80%;
   }
 
-  #result {
-    flex-direction: column;
-    gap: 2rem;
+  #copy {
+    padding: 0.7rem 1rem;
   }
 
   #notification {
