@@ -41,7 +41,7 @@ const Registration = () => {
       navigate("/home");
     } catch (err) {
       console.log(err.message);
-      setError("Failed to register. Please try again.");
+      setError(err.message || "Registration failed");
     } finally {
       setLoading(false);
     }
@@ -74,11 +74,10 @@ const Registration = () => {
           ))}
           <button
             type="submit"
-            className={`w-full p-2 rounded-md text-lg font-medium transition duration-200 ease-in-out ${
-              loading
-                ? "bg-gray-500 cursor-not-allowed"
-                : "bg-slate-700 text-white hover:bg-slate-800"
-            }`}
+            className={`w-full p-2 rounded-md text-lg font-medium transition duration-200 ease-in-out ${loading
+              ? "bg-gray-500 cursor-not-allowed"
+              : "bg-slate-700 text-white hover:bg-slate-800"
+              }`}
             disabled={loading}
           >
             {loading ? "Signing Up..." : "Signup"}

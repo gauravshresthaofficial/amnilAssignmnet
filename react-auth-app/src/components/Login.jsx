@@ -28,7 +28,7 @@ const Login = () => {
       navigate("/");
     } catch (err) {
       console.log(err.message);
-      setError("Failed to login. Please try again.");
+      setError(err.message || "Failed to login. Please try again.");
     }
   };
 
