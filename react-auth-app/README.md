@@ -21,7 +21,7 @@ A modern authentication system built with React, React Router, and Tailwind CSS.
 1. Clone the repository:
 
    ```bash
-   git clone --no-checkout https://github.com/gauravshresthaofficial/amnilAssignment.git
+   git clone --no-checkout https://github.com/gauravshresthaofficial/amnilAssignmnet.git
    cd amnilAssignment
    git sparse-checkout init --cone
    git sparse checkout set react-auth-app

@@ -27,14 +27,13 @@ const Login = () => {
       await login(formData);
       navigate("/");
     } catch (err) {
-      console.log(err.message);
       setError(err.message || "Failed to login. Please try again.");
     }
   };
 
   return (
     <div className="w-full h-screen flex items-center justify-center bg-gray-100">
-      <div className="container w-2xl bg-white p-8 rounded-xl shadow-md space-y-4">
+      <div className="container w-lg bg-white p-8 rounded-xl shadow-md space-y-4 max-w-[90%]">
         <h1 className="text-2xl font-bold">Login</h1>
         {error && <p className="text-red-500">{error}</p>}
 

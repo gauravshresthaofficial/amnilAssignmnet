@@ -40,7 +40,6 @@ const Registration = () => {
       setFormData({ username: "", email: "", password: "" });
       navigate("/home");
     } catch (err) {
-      console.log(err.message);
       setError(err.message || "Registration failed");
     } finally {
       setLoading(false);
@@ -49,7 +48,7 @@ const Registration = () => {
 
   return (
     <div className="w-full h-screen flex items-center justify-center bg-gray-100">
-      <div className="container w-2xl bg-white p-8 rounded-xl shadow-md space-y-4">
+      <div className="container w-lg bg-white p-8 rounded-xl shadow-md space-y-4 max-w-[90%]">
         <h1 className="text-2xl font-bold">Sign Up</h1>
         {error && <p className="text-red-500">{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">

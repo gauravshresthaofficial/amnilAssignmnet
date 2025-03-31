@@ -6,7 +6,6 @@ export const fetchUsers = async () => {
   if (!response.ok) {
     throw new Error("Failed to fetch users");
   }
-  console.log("fetch ok");
   return response.json();
 };
 
